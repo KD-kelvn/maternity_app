@@ -3,7 +3,7 @@
     <ul class="quick-links list-none flex flex-col space-y-4 mt-[3rem]">
        <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/users/chat">All doctors</a></li>
        <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/users/chat">Community</a></li>
-       <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/users/appointments">My appointments</a></li>
+       <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/users/appointments/view">My appointments</a></li>
        <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/users/profile">profile</a></li>
      
     </ul>
