@@ -33,6 +33,5 @@
         <x-card/>
         <x-card/>
      </x-layout>
-
     </body>
 </html>
