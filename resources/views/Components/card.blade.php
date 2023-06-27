@@ -12,7 +12,7 @@
       <a href="#" class="text-blue-500 hover:text-blue-700 mx-3">LinkedIn</a>
       <a href="#" class="text-blue-500 hover:text-blue-700 mx-3">Instagram</a>
     </div>
-    <div class="mt-5 mb-5">
+    <div class="mt-5 mb-7">
       <h3 class="text-xl font-semibold">Bio</h3>
       <p class="text-gray-600 mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque quam aliquam nulla veritatis suscipit magni exercitationem et vel qui vitae!</p>
     </div>
