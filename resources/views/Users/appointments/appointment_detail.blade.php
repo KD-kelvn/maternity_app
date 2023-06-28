@@ -29,7 +29,7 @@
     </head>
     <body class="">
      <x-layout>
-        <x-create_appointment/>
+        <x-appointment_detail/>
      </x-layout>
     </body>
 </html>

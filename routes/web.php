@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Users\DoctorsController;
+use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,7 @@ Route::get('/', function () {
 
 Route::get('/users/doctors', [DoctorsController::class, 'index']);
 Route::get('/users/doctors/{id}', [DoctorsController::class, 'show']);
+
+Route::get('/users/appointments/create', [AppointmentController::class, 'create']);
+Route::get('/users/appointments/view', [AppointmentController::class, 'view']);
+Route::get('/users/appointments/appointment_detail', [AppointmentController::class, 'appointmentDetail']);
