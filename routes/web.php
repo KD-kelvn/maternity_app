@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Users\DoctorsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/users/doctors', [DoctorsController::class, 'index']);
+Route::get('/users/doctors/{id}', [DoctorsController::class, 'show']);
