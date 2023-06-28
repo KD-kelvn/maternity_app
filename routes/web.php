@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\Users\DoctorsController;
-use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\Users\DoctorsController;
 
 /*
 |--------------------------------------------------------------------------
