@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\Users\AuthController;
 use App\Http\Controllers\Users\DoctorsController;
+use App\Http\Controllers\Users\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +27,7 @@ Route::get('/users/doctors/{id}', [DoctorsController::class, 'show']);
 Route::get('/users/appointments/create', [AppointmentController::class, 'create']);
 Route::get('/users/appointments/view', [AppointmentController::class, 'view']);
 Route::get('/users/appointments/appointment_detail', [AppointmentController::class, 'appointmentDetail']);
+Route::get('/users/profile/show', [UsersController::class, 'show']);
+Route::get('/components/auth/login', [AuthController::class, 'view']);
+Route::get('/components/auth/register', [AuthController::class, 'viewRegister']);
+

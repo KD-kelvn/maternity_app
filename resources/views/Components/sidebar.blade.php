@@ -4,7 +4,7 @@
        <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/users/doctors">All doctors</a></li>
        <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/users/chat">Community</a></li>
        <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/users/appointments/view">My appointments</a></li>
-       <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/users/profile">profile</a></li>
+       <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/users/profile/show">profile</a></li>
      
     </ul>
 
