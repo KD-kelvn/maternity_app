@@ -1,4 +1,4 @@
-import './bootstrap';
+
 // Get all the link elements inside the sidebar
 const links = document.querySelectorAll('.quick-links li');
 
