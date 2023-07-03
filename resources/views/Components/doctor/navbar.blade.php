@@ -13,7 +13,7 @@
         </div>
       </div>
      
-      <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 4a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6c0-1.1.9-2 2-2h14zM5 2a2 2 0 00-2 2v1h18V4a2 2 0 00-2-2H5z"/><path d="M2 10h20v9a2 2 0 01-2 2H4a2 2 0 01-2-2v-9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h8"/></svg>
+      <svg class="w-10 h-10 ml-2 bg-gray-200 p-2 rounded-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 4a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6c0-1.1.9-2 2-2h14zM5 2a2 2 0 00-2 2v1h18V4a2 2 0 00-2-2H5z"/><path d="M2 10h20v9a2 2 0 01-2 2H4a2 2 0 01-2-2v-9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h8"/></svg>
     </div>
 
  

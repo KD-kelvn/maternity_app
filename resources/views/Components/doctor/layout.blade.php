@@ -13,7 +13,7 @@
         referrerpolicy="no-referrer"
     /> 
     <link rel="stylesheet" href="../css/app.css">
-   
+    <script src="../js/app.js"></script>
     <script src="https://cdn.tailwindcss.com" ></script>
     <script>
         tailwind.config = {
@@ -37,7 +37,7 @@
                 {{$slot}}
             </div>
         </div>
-        <script src="../js/app.js"></script>
+       
     </body>
 
 </html>
