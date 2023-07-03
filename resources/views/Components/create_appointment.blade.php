@@ -21,6 +21,12 @@
       <label for="time" class="block text-gray-700 text-sm font-bold mb-2">Preferred Time:</label>
       <input type="time" id="time" name="time" class="w-full border border-gray-300 px-3 py-2 rounded-sm focus:outline-none focus:border-blue-500" required>
     </div>
+
+    <div class="mb-6">
+      <label for="time" class="block text-gray-700 text-sm font-bold mb-2">Description</label>
+      <textarea class="w-full h-32 px-3 py-2 border border-gray-300 rounded-sm focus:outline-none focus:border-blue-500" placeholder="Enter your Description about appoinment" required></textarea>
+
+    </div>
     <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-sm hover:bg-blue-600">Book Appointment</button>
   </form>
 </div>
