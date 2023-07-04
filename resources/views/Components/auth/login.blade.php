@@ -32,7 +32,6 @@ body{
 }
 .background{
     width: 430px;
-    height: 520px;
     position: absolute;
     transform: translate(-50%,-50%);
     left: 50%;
@@ -40,7 +39,6 @@ body{
 }
 
 form{
-    height: 520px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -129,16 +127,23 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form>
+    <form method="POST">
+      @csrf
         <h3>User Login</h3>
 
         <label for="username">Email</label>
-        <input type="text" placeholder="Email" id="username">
+        <input type="text" placeholder="Email" id="username" name="email" value="{{ old('email') }}">
+        @if ($errors->has('email'))
+          <span class="text-danger" style="color: red">{{ $errors->first('email') }}</span>
+        @endif
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password">
+        <input type="password" placeholder="Password" id="password" name="password">
+        @if ($errors->has('password'))
+          <span class="text-danger" style="color: red">{{ $errors->first('password') }}</span>
+        @endif
 
-        <button>Sign In</button>
+        <button type="submit">Sign In</button>
         <div class="social">
             <p>Don't have an account <a href="/components/auth/register">Click here</a></p>
         </div>

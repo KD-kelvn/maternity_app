@@ -118,20 +118,32 @@ button{
 </head>
 <body>
   
-    <form>
+    <form method="POST" action="">
+      @csrf
         <h3>User Signup</h3>
 
-        <label for="username">Email</label>
-        <input type="text" placeholder="Email" id="username">
+        <label for="pheonumber">Full Name</label>
+        <input type="text" name="name" value="{{ old('name') }}" placeholder="name" id="name">
+          @if ($errors->has('name'))
+            <span class="text-danger" style="color: red">{{ $errors->first('name') }}</span>
+          @endif
 
-        <label for="pheonumber">Phonenumber</label>
-        <input type="text" placeholder="Phonenumber" id="username">
+        <label for="username">Email</label>
+        <input type="text" placeholder="Email" id="username" id="email" name="email" value="{{ old('email') }}">
+          @if ($errors->has('email'))
+              <span class="text-danger" style="color: red">{{ $errors->first('email') }}</span>
+          @endif
+
+  
 
         <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password">
+        <input type="password" placeholder="Password" id="password" name="password">
+        @if ($errors->has('password'))
+            <span class="text-danger" style="color: red">{{ $errors->first('password') }}</span>
+        @endif
 
         <label for="password">Repeat Password</label>
-        <input type="password2" placeholder="Repeat password" id="password">
+        <input type="password2" placeholder="Repeat password" id="password" name="password_confirmation">
 
         <button>Signup</button>
         <div class="social">

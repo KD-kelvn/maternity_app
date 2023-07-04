@@ -8,12 +8,12 @@
      
     </ul>
 
-    <form class="text-red-600 absolute bottom-10  left-[40%]" method="POST" action="/logout">
-     @csrf
-     <button type="submit">
-       <i class="fa-solid fa-door-closed"></i> Logout
-     </button>
-   </form>
+
+   <form class="text-red-600 absolute bottom-10  left-[40%]" method="POST" action="{{ route('logout') }}">
+      @csrf
+      <button type="submit">Logout</button>
+    </form>
+
 
     {{-- <a href="/logout" class="text-red-600 absolute bottom-10  left-[40%]">Logout</a> --}}
 </section>

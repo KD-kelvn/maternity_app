@@ -28,12 +28,16 @@ Route::get('/', function () {
 Route::get('/users/doctors', [DoctorsController::class, 'index']);
 Route::get('/users/doctors/{id}', [DoctorsController::class, 'show']);
 
-Route::get('/users/appointments/create', [AppointmentController::class, 'create']);
+Route::get('/users/appointments/create', [AppointmentController::class, 'create'])->name('dashboard');
 Route::get('/users/appointments/view', [AppointmentController::class, 'view']);
 Route::get('/users/appointments/appointment_detail', [AppointmentController::class, 'appointmentDetail']);
 Route::get('/users/profile/show', [UsersController::class, 'show']);
-Route::get('/components/auth/login', [AuthController::class, 'view']);
+Route::get('/components/auth/login', [AuthController::class, 'view'])->name('login');
+Route::post('/components/auth/login', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('/components/auth/register', [AuthController::class, 'viewRegister']);
+Route::post('/components/auth/register', [AuthController::class, 'store']);
+Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
+
 
 // DOCTORS APP
 Route::get('/doctors', [DoctorController::class, 'index'])->middleware('auth');
