@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Doctors\AppointmentsController;
+use App\Http\Controllers\Doctors\DoctorController;
 use App\Http\Controllers\Doctors\PatientsController;
 use App\Http\Controllers\Doctors\ProfileController;
 use App\Http\Controllers\Users\AuthController;
@@ -35,12 +36,11 @@ Route::get('/components/auth/login', [AuthController::class, 'view']);
 Route::get('/components/auth/register', [AuthController::class, 'viewRegister']);
 
 // DOCTORS APP
-Route::get("/doctors", function(){
-    return view("doctors.dashboard");
-});
+Route::get('/doctors', [DoctorController::class, 'index'])->middleware('auth');
 Route::get('/doctors/appointments/view', [AppointmentsController::class, 'index']);
 Route::get('/doctors/appointments/{id}', [AppointmentsController::class, 'show']);
 Route::get('/doctors/appointments/patients', [PatientsController::class, 'index']);
 Route::get('/doctors/profile', [ProfileController::class, 'show']);
+Route::get('/login', [DoctorController::class, 'login'])->name('login');
 
 

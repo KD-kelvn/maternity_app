@@ -3,6 +3,22 @@
 <div class="single-appointment shadow bd-white rounded px-4 py-2">
     <div class="wrapper border border-gray-200 rounded relative p-2">
      <h2 class="text-3xl font-semibold mb-2">Appointment detail</h2>
+     <div class="session-status">
+        <div class="status flex gap-4 mt-4 mb-4">
+            <div class="item flex flex-col gap-2">
+                <h4 class="text-xl font-semibold">Session status</h4>
+                <p class="text-orange-500">Pending</p>
+            </div>
+            <div class="item flex flex-col gap-2">
+                <h4 class="text-xl font-semibold">Session type</h4>
+                <p class="text-gray-900">Online</p>
+            </div>
+            <div class="item flex flex-col gap-2">
+                <h4 class="text-xl font-semibold">Session fee</h4>
+                <p class="text-gray-900">Tsh. 2000</p>
+            </div>
+        </div>
+     </div>
      <div class="desc w-[80%]">
       <h4>Description:</h4>
       <p class="text-gray-900">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum incidunt amet voluptatum unde deserunt tempora iste ab. Pariatur sequi voluptate ut facilis beatae eveniet veniam nam error minima. Consequatur, reprehenderit.</p>
@@ -77,7 +93,30 @@
      </div>
    
      <div class="reschedule-appointment mt-6">
-        <h2>Re-schedule appointment here</h2>
+        <h2 class="text-2xl font-semibold">Re-schedule appointment here</h2>
+        <div class="note-info-icon w-[80%] flex gap-2 mb-4 mt-4">
+            <i class="fas fa-info-circle text-orange-500 text-xl"></i>
+            <p class="text-gray-800 text-xl">Note: You can only re-schedule appointment 24 hours before the appointment date</p>
+        </div>
+        <form action="" class="w-[64%]">
+            <div class="flex flex-col gap-4">
+                <div class="flex flex-col gap-2">
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date" class="border border-gray-200 rounded p-2">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="time">Time</label>
+                    <input type="time" name="time" id="time" class="border border-gray-200 rounded p-2">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="location">Location</label>
+                    <input type="text" name="location" id="location" class="border border-gray-200 rounded p-2">
+                </div>
+                <div class="flex gap-4">
+                    <input type="submit" value="Re-schedule" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                </div>
+            </div>
+        </form>
      </div>
     </div>
   </div>
