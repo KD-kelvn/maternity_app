@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class DoctorsController extends Controller
@@ -10,8 +11,10 @@ class DoctorsController extends Controller
     //
     public function index()
     {
-        return view('users.doctors.index');
+        $doctors = Doctor::all();
+        return view('users.doctors.index', compact('doctors'));
     }
+    
 
     public function show($id)
     {
