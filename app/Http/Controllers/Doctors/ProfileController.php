@@ -9,6 +9,9 @@ class ProfileController extends Controller
 {
     //
     public function show(){
-        return view("doctors.profile");
+        return view("doctors.profile.show");
+    }
+    public function edit(){
+        return view("doctors.profile.edit");
     }
 }

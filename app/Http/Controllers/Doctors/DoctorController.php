@@ -19,4 +19,11 @@ class DoctorController extends Controller
     public function auth(){
         return view('doctors.auth');
     }
+
+    public function profileShow(){
+        return view('doctors.profile.show');
+    }
+    public function profileEdit(){
+        return view('doctors.profile.edit');
+    }
 }
