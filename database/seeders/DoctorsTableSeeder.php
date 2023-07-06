@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Doctor;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DoctorsTableSeeder extends Seeder
 {
@@ -22,6 +23,8 @@ class DoctorsTableSeeder extends Seeder
                 'address' => 'Kigamboni, Dar es salaam',
                 'birth_date' => '1980-05-15',
                 'gender' => 'Male',
+                'hospital' => 'Kigamboni',
+                'password' => Hash::make('12345'), // Hash the password for security
                 'bio' => 'Dr. Kelvin Msindai is a highly experienced cardiologist...',
             ],
             [
@@ -32,6 +35,8 @@ class DoctorsTableSeeder extends Seeder
                 'address' => '456 Elm Street, Dar es salaam',
                 'birth_date' => '1985-09-21',
                 'gender' => 'Female',
+                'hospital' => 'Muhimbili',
+                'password' => Hash::make('12345'), // Hash the password for security
                 'bio' => 'Dr. Jane Smith specializes in providing care for infants and children...',
             ],
             // Add more sample data as needed

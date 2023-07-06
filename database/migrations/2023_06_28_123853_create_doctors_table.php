@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->date('birth_date')->nullable();
             $table->string('gender')->nullable();
+            $table->string('hospital')->nullable();
+            $table->string('password')->nullable();
             $table->text('bio')->nullable();
             $table->timestamps();
         });
