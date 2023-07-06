@@ -15,7 +15,7 @@
                 <a href="#" class="text-blue-500 hover:text-blue-700 mx-3">Instagram</a>
                 </div>
 
-                <a href="/users/doctors/1" class="bg-transparent ml-[4.4rem] hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                <a href="/users/doctors/{{$doctor->id}}" class="bg-transparent ml-[4.4rem] hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                 View profile
                 </a>
             </div>

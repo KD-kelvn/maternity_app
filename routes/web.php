@@ -28,15 +28,17 @@ Route::get('/', function () {
 Route::get('/users/doctors', [DoctorsController::class, 'index']);
 Route::get('/users/doctors/{id}', [DoctorsController::class, 'show']);
 
-Route::get('/users/appointments/create', [AppointmentController::class, 'create'])->name('dashboard');
+Route::get('/users/appointments/create/{id}', [AppointmentController::class, 'create'])->name('dashboard');
 Route::get('/users/appointments/view', [AppointmentController::class, 'view']);
-Route::get('/users/appointments/appointment_detail', [AppointmentController::class, 'appointmentDetail']);
+Route::get('/users/appointments/appointment_detail/{id}', [AppointmentController::class, 'appointmentDetail'])->name('appointment_detail');
 Route::get('/users/profile/show', [UsersController::class, 'show']);
 Route::get('/components/auth/login', [AuthController::class, 'view'])->name('login');
 Route::post('/components/auth/login', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('/components/auth/register', [AuthController::class, 'viewRegister']);
 Route::post('/components/auth/register', [AuthController::class, 'store']);
 Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
+Route::post('/users/appointments/create/{id}', [AppointmentController::class, 'store'])->name('appointments.store');
+
 
 
 // DOCTORS APP

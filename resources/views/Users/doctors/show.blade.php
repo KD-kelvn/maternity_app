@@ -5,11 +5,11 @@
                 <img src="{{asset('images/user_default.png')}}" class="w-full h-full rounded-full" alt="">
               </div>
               <div class="profile-info ml-2">
-                <h1 class="text-2xl font-bold">Dr. Joice Ndarichako</h1>
-                <p class="text-gray-500 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <h1 class="text-2xl font-bold">Dr. {{ $doctor->name }}</h1>
+                <p class="text-gray-500 text-sm">{{ $doctor->bio }}.</p>
                 <p class="hospital">
                     <span class="text-gray-500 text-sm">Hospital:</span>
-                    <span class="text-gray-700 text-sm">Muhimbili Hospital</span>
+                    <span class="text-gray-700 text-sm">{{ $doctor->hospital }}</span>
                 </p>
               </div>
        </div>
@@ -20,10 +20,32 @@
           </div>
 
           <div class="desc shadow rounded p-2 flex flex-col gap-3">
-           <p>1: Mental therapy </p>
-           <p>2: Uzazi wa mpango</p>
+           <p>{{ $doctor->specialty }}</p>
+        
           </div>
        </div>
+
+       <div class="profession-info-card relative mt-4  p-2">
+        <div class="info-header border-[1px] border-gray-300 rounded w-max px-2">
+          <h1 class="text-xl font-semibold">Email</h1>
+        </div>
+
+        <div class="desc shadow rounded p-2 flex flex-col gap-3">
+         <p>{{ $doctor->email }}</p>
+      
+        </div>
+     </div>
+
+     <div class="profession-info-card relative mt-4  p-2">
+        <div class="info-header border-[1px] border-gray-300 rounded w-max px-2">
+          <h1 class="text-xl font-semibold">Phonenumber</h1>
+        </div>
+
+        <div class="desc shadow rounded p-2 flex flex-col gap-3">
+         <p>{{ $doctor->phone }}</p>
+      
+        </div>
+     </div>
 
        <div class="clients-reviews mt-10">
             <div class="info-header border-[1px] border-gray-300 rounded mt-4 w-max px-2">
@@ -69,7 +91,7 @@
         </div>
 
         <div class="make-appointment-section mt-10">
-            <a href="/users/appointments/create" class="bg-transparent  hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+            <a href="{{ route('dashboard', ['id' => $doctor->id]) }}" class="bg-transparent  hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                Make appointment
               </a>
         </div>

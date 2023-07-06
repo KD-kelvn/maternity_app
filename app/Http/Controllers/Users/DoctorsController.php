@@ -18,6 +18,7 @@ class DoctorsController extends Controller
 
     public function show($id)
     {
-        return view('users.doctors.show');
+        $doctor = Doctor::findOrFail($id);
+        return view('users.doctors.show', ['doctor' => $doctor]);
     }
 }
