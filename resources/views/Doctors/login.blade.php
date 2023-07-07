@@ -25,25 +25,32 @@
                     </td>
                 </tr>
                 <tr>
-                    <form action="" method="POST" >
+                    <form action="/doctors/login" method="POST" >
+                        @csrf
                     <td class="label-td">
+                      @error('email')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
                         <label for="useremail" class="form-label">Email: </label>
                     </td>
                 </tr>
                 <tr>
                     <td class="label-td">
-                        <input type="email" name="useremail" class="input-text" placeholder="Email Address" required>
+                        <input type="email" name="email" class="input-text" placeholder="Email Address" required>
                     </td>
                 </tr>
                 <tr>
                     <td class="label-td">
-                        <label for="userpassword" class="form-label">Password: </label>
+                        @error('password')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <label for="password" class="form-label">Password: </label>
                     </td>
                 </tr>
     
                 <tr>
                     <td class="label-td">
-                        <input type="Password" name="userpassword" class="input-text" placeholder="Password" required>
+                        <input type="password" name="password" class="input-text" placeholder="Password" required>
                     </td>
                 </tr>
     
