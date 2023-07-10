@@ -10,6 +10,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Doctor extends Authenticatable
 {
     use HasFactory;
+    protected $hidden = [
+        'password',
+        'remember_token',
+        'created_at',
+        'updated_at',
+    ];
+    
 
     public function getAuthPassword()
     {

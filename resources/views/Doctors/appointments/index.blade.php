@@ -7,7 +7,8 @@
 
     <div class="table-for-appointments">
         <div class="top-filter w-[88%] relative border border-gray-200 rounded-md ">
-            <form action="" class="w-full flex gap-4 items-center p-2">
+            <form action="/doctors/appointments/view" method="GET" class="w-full flex gap-4 items-center p-2">
+                @csrf
                  <div class="input-date w-[76%] relative flex items-center gap-1">
                         <label for="" class="text-gray-500">Date</label>
                         <input type="date" name="date" id="" class="border border-gray-200 rounded-md p-2 w-full outline-none focus:outline-none">
@@ -40,24 +41,45 @@
                 </tr>
             </thead>
             <tbody>
+                @if($appointments->count() > 0)
+                @foreach($appointments as $appointment)
                 <tr class="bg-white border-b">
                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Joyce Mrembo
+                        {{$appointment->user->name}}
                      </th>
                      <td class="px-6 py-4">
-                        12/12 12:30 PM
+                         {{$appointment->date}} {{$appointment->time}}
                     </td>
                     <td class="px-6 py-4">
-                       <p>Lorem ipsum dolor sit amet consectetur.</p>
+                       <p>{{$appointment->description}}</p>
                     </td>
                     <td class="px-6 py-4">
                         <span class="bg-green-500 text-white px-2 py-1 rounded-md">New</span>
                     </td>
                     <td class="px-6 py-4">
-                        <a href="/doctors/appointments/1" class="text-blue-500">View</a>
-
+                        <a href="/doctors/appointments/{{$appointment->id}}" class="text-blue-500">View</a>
                     </td>
                 </tr>
+                @endforeach
+                @else
+                <tr class="bg-white border-b">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        -
+                     </th>
+                     <td class="px-6 py-4">
+                      -
+                    </td>
+                    <td class="px-6 py-4">
+                       <p>--</p>
+                    </td>
+                    <td class="px-6 py-4">
+                        -
+                    </td>
+                    <td class="px-6 py-4">
+                       -
+                    </td>
+                </tr>
+                @endif
             </tbody>
         </table>
     </div>

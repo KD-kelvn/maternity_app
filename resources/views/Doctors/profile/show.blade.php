@@ -8,19 +8,19 @@
             <div class="details-container flex flex-col gap-4 mt-4 relative">
                 <div class="item">
                     <p>Name:</p>
-                    <p>Dr John doe</p>
+                    <p>{{$doctor->name}}</p>
                 </div>
                 <div class="item">
                     <p>Email:</p>
-                    <p>jodoe@maternity.co.tz</p>
+                    <p>{{$doctor->email}}</p>
                 </div>
                 <div class="item">
                     <p>Phone Number:</p>
-                    <p>+255 712 345 678</p>
+                    <p>{{$doctor->phone}}</p>
                 </div>
                 <div class="item">
                     <p>Profession:</p>
-                    <p>Obstetrician</p>
+                    <p>{{$doctor->specialty}}</p>
                 </div>
                 <div class="item">
                     <p>Services:</p>
@@ -35,7 +35,7 @@
             <i class="fa-solid fa-user-pen text-orange-500 text-center text-xl ml-2"></i>
         </div>
         <div class="link-to-settings">
-            <a href="#" class="text-orange-500 font-bold text-xl">Edit Account</a>
+            <a href="/doctors/profile/edit/{{$doctor->id}}" class="text-orange-500 font-bold text-xl">Edit Account</a>
             <p>Edit your account details such as professions, services and phone number</p>
         </div>
     </div>
@@ -48,7 +48,7 @@
             <i class="fa-sharp fa-solid fa-trash text-red-500 text-xl "></i>
         </div>
         <div class="link-to-settings">
-            <a href="#" class="text-red-500 font-bold text-xl">Delete Account</a>
+            <a href="/doctors/profile/delete/{{$doctor->id}}" class="text-red-500 font-bold text-xl">Delete Account</a>
             <p>Delete your account details such as professions, services and phone number</p>
         </div>
     </div>

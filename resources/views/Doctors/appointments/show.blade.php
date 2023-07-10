@@ -7,7 +7,7 @@
         <div class="status flex gap-4 mt-4 mb-4">
             <div class="item flex flex-col gap-2">
                 <h4 class="text-xl font-semibold">Session status</h4>
-                <p class="text-orange-500">Pending</p>
+                <p class="{{$appointment->status == "pending"? "text-orange-500 ":($appointment->status=="rejected"? "text-red-600": "text-green-600")}} capitalize">{{$appointment->status}}</p>
             </div>
             <div class="item flex flex-col gap-2">
                 <h4 class="text-xl font-semibold">Session type</h4>
@@ -21,21 +21,21 @@
      </div>
      <div class="desc w-[80%]">
       <h4>Description:</h4>
-      <p class="text-gray-900">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum incidunt amet voluptatum unde deserunt tempora iste ab. Pariatur sequi voluptate ut facilis beatae eveniet veniam nam error minima. Consequatur, reprehenderit.</p>
+      <p class="text-gray-900">{{$appointment->description}}</p>
      </div>
   
      <div class="appointment-details flex flex-col gap-3 mt-6">
       <div class="item">
           <h4>Doctor of this session:</h4>
-          <p class="text-gray-900">Dr. John Doe</p>
+          <p class="text-gray-900">{{$doctor->name}}</p>
       </div>
       <div class="item">
           <h4>Session Date:</h4>
-          <p class="text-gray-900">12/12/2012 </p>
+          <p class="text-gray-900">{{$appointment->appointment_date}} </p>
       </div>
       <div class="item">
           <h4>Session time: </h4>
-          <p class="text-gray-900">12:30 PM</p>
+          <p class="text-gray-900">{{$appointment->appointment_time}}</p>
       </div>
       <div class="item">
           <h4>Session Location: </h4>
@@ -72,19 +72,23 @@
                     123f78d
                  </th>
                  <td class="px-6 py-4">
-                    Joyce mrembo
+                    {{$appointment->user->name}}
                 </td>
                 <td class="px-6 py-4">
-                  joyce@example.com
+                  {{$appointment->user->email}}}
                 </td>
                 <td class="px-6 py-4">
-                  0987654321
+                    {{$appointment->user->phone}}
                 </td>
                 <td class="px-6 py-4">
-                  <form action="" class="flex gap-4">
-                    <input type="submit" value="Accept" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                    <input type="submit" value="Reject" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-
+                  <form action="/doctors/appointments/{{$appointment->id}}" method="POST" class="flex gap-4">
+                    @csrf
+                    @if($appointment->status == "pending")
+                    <input type="submit" name="accept" value="Accept" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+                    <input type="submit" name="reject" value="Reject" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                    @else
+                    <input type="submit" name="pending" value="Set Pending" class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">
+                    @endif
                   </form>
                 </td>
             </tr>
@@ -92,13 +96,16 @@
     </table>
      </div>
    
+    
      <div class="reschedule-appointment mt-6">
         <h2 class="text-2xl font-semibold">Re-schedule appointment here</h2>
         <div class="note-info-icon w-[80%] flex gap-2 mb-4 mt-4">
             <i class="fas fa-info-circle text-orange-500 text-xl"></i>
-            <p class="text-gray-800 text-xl">Note: You can only re-schedule appointment 24 hours before the appointment date</p>
+            <p class="text-gray-800 text-xl">Note: You can only re-schedule appointment 24 hours before the appointment date or when status is on pending</p>
         </div>
-        <form action="" class="w-[64%]">
+        @if($appointment->status =="pending")
+        <form action="/doctors/appointments/{{$appointment->id}}/reschedule" method="POST" class="w-[64%]">
+            @csrf
             <div class="flex flex-col gap-4">
                 <div class="flex flex-col gap-2">
                     <label for="date">Date</label>
@@ -117,6 +124,23 @@
                 </div>
             </div>
         </form>
+        @else
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-2">
+                <label for="date">Date</label>
+                <input type="date" name="date" id="date" class="border border-gray-200 rounded p-2" disabled>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="time">Time</label>
+                <input type="time" name="time" id="time" class="border border-gray-200 rounded p-2" disabled>
+            </div>
+            <div class="flex flex-col gap-2">
+                <label for="location">Location</label>
+                <input type="text" name="location" id="location" class="border border-gray-200 rounded p-2" disabled>
+            </div>
+        
+        </div>
+        @endif
      </div>
     </div>
   </div>

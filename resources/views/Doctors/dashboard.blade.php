@@ -21,23 +21,23 @@
       <div class="cards-wrapper mt-2 grid grid-cols-3 gap-3">
          @php
               $appointments = [
-                'total'=>2,
+                'total'=>$totalAppointments,
                 'title'=>'New Appointments',
                 'icon'=> "fa-solid fa-calendar-check",
       ];
       $patients = [
-        'total'=>4,
+        'total'=>$totalPatients,
         'title'=>'Patients',
         'icon'=> "fa-solid fa-hospital-user",
       ];
       $prescriptions = [
-        'total'=>4,
+        'total'=>$allAppointments,
         'title'=>'All appointments',
         'icon'=> "fa-solid fa-file-prescription",
       ];
          @endphp
 
-        <x-doctor.card :data="$appointments"  />
+        <x-doctor.card :data="$appointments"   />
         <x-doctor.card :data="$patients"  />
         <x-doctor.card :data="$prescriptions"  />
       </div>

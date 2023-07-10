@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Doctors\AppointmentsController;
@@ -39,17 +38,16 @@ Route::post('/components/auth/register', [AuthController::class, 'store']);
 Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
 Route::post('/users/appointments/create/{id}', [AppointmentController::class, 'store'])->name('appointments.store');
 
-
-
 // DOCTORS APP
-Route::get('/doctors', [DoctorController::class, 'index'])->middleware('auth');
+Route::get('/doctors', [DoctorController::class, 'index'])->middleware('auth:doctor')->name('Doctors.dashboard');
 Route::get('/doctors/appointments/view', [AppointmentsController::class, 'index']);
-Route::get('/doctors/appointments/{id}', [AppointmentsController::class, 'show']);
+
+Route::get('/doctors/appointments/{appointment}', [AppointmentsController::class, 'show']);
+Route::post('/doctors/appointments/{appointment}', [AppointmentsController::class, 'action']);
+Route::post('/doctors/appointments/{appointment}/reschedule', [AppointmentsController::class, 'reschedule'])->name('reschedule');
 Route::get('/doctors/appointments/patients', [PatientsController::class, 'index']);
 Route::get('/doctors/profile', [ProfileController::class, 'show']);
 Route::get('/doctors/profile/edit', [ProfileController::class, 'edit']);
-Route::get('/login', [DoctorController::class, 'showLogin'])->name('login');
-Route::post('/doctors/login', [DoctorController::class, 'login'])->name('login');
+Route::get('/doctors/login', [DoctorController::class, 'showLogin'])->name('login');
+Route::post('/doctors/login', [DoctorController::class, 'login'])->name('Doctors.login');
 Route::post('/logout', [DoctorController::class, 'logout'])->name('logout');
-
-
