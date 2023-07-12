@@ -5,6 +5,7 @@ use App\Http\Controllers\Doctors\AppointmentsController;
 use App\Http\Controllers\Doctors\DoctorController;
 use App\Http\Controllers\Doctors\PatientsController;
 use App\Http\Controllers\Doctors\ProfileController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Users\AuthController;
 use App\Http\Controllers\Users\DoctorsController;
 use App\Http\Controllers\Users\UsersController;
@@ -20,23 +21,27 @@ use App\Http\Controllers\Users\UsersController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::match(['get', 'post'], '/', function () {
+    return view('/components/auth/login');
+})->name('user.login');
+
 
 Route::get('/users/doctors', [DoctorsController::class, 'index']);
 Route::get('/users/doctors/{id}', [DoctorsController::class, 'show']);
 
-Route::get('/users/appointments/create/{id}', [AppointmentController::class, 'create'])->name('dashboard');
+Route::get('/welcome', [AppointmentController::class, 'viewWelcome'])->name('dashboard');
+Route::get('/users/appointments/create/{id}', [AppointmentController::class, 'create'])->name('appointmentCreate');
 Route::get('/users/appointments/view', [AppointmentController::class, 'view']);
 Route::get('/users/appointments/appointment_detail/{id}', [AppointmentController::class, 'appointmentDetail'])->name('appointment_detail');
 Route::get('/users/profile/show', [UsersController::class, 'show']);
-Route::get('/components/auth/login', [AuthController::class, 'view'])->name('login');
-Route::post('/components/auth/login', [AuthController::class, 'authenticate'])->name('authenticate');
+Route::get('/components/auth/login', [AuthController::class, 'view'])->name('Userlogin');
+Route::post('/components/auth/login', [AuthController::class, 'authenticate'])->name('user.login');
 Route::get('/components/auth/register', [AuthController::class, 'viewRegister']);
 Route::post('/components/auth/register', [AuthController::class, 'store']);
-Route::post('/logout', [AuthController::class, 'destroy'])->name('logout');
+Route::get('/components/suggestions', [DoctorController::class, 'bestDoctor']);
+Route::post('/userlogout', [AuthController::class, 'destroy'])->name('user.logout');
 Route::post('/users/appointments/create/{id}', [AppointmentController::class, 'store'])->name('appointments.store');
+Route::get('/users/appointments/search', [SearchController::class, 'search'])->name('search');
 
 // DOCTORS APP
 Route::get('/doctors', [DoctorController::class, 'index'])->middleware('auth:doctor')->name('Doctors.dashboard');

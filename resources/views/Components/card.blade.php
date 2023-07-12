@@ -1,3 +1,4 @@
+@foreach ($doctors as $doctor)
 <div class="max-w-full w-[88%] mx-auto mb-6 bg-white rounded-lg shadow-md p-5">
   <div class="head flex items-center gap-4">
     <img class="w-[10%] h-[10%] rounded-full" src="https://picsum.photos/200" alt="Profile picture">
@@ -17,3 +18,4 @@
       View profile
     </a>
   </div>
+@endforeach

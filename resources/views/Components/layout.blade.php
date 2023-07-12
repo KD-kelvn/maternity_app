@@ -34,7 +34,7 @@
             <div class="app-center-container flex flex-col mt-[8%] ml-[19%] w-[52%]">
                 {{$slot}}
             </div>
-        <x-suggestions/>
+        <x-suggestions   />
         </div>
     </body>
 </html>

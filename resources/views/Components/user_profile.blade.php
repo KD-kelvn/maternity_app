@@ -6,10 +6,6 @@
         <p class="text-gray-500">Web Developer</p>
       </div>
     </div>
-    <div>
-      <h3 class="text-lg font-semibold mb-2">About Me</h3>
-      <p class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
     <div class="mt-4">
       <h3 class="text-lg font-semibold mb-2">Contact Information</h3>
       <ul class="list-disc pl-6">

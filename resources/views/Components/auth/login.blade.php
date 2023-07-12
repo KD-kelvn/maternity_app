@@ -127,7 +127,7 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form method="POST">
+    <form method="POST" action="{{ route('user.login') }}">
       @csrf
         <h3>User Login</h3>
 

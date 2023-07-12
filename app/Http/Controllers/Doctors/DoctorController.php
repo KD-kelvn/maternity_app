@@ -75,5 +75,6 @@ class DoctorController extends Controller
     
         return redirect()->route('login');
     }
+
     
 }

@@ -70,7 +70,7 @@ class AuthController extends Controller
     
         $request->session()->regenerateToken();
     
-        return redirect()->route('authenticate')->withSuccess('You have logged out successfully!');
+        return redirect()->route('Userlogin')->withSuccess('You have logged out successfully!');
     }
     
 

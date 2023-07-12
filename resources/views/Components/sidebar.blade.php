@@ -9,7 +9,7 @@
     </ul>
 
 
-   <form class="text-red-600 absolute bottom-10  left-[40%]" method="POST" action="{{ route('logout') }}">
+   <form class="text-red-600 absolute bottom-10  left-[40%]" method="POST" action="{{ route('user.logout') }}">
       @csrf
       <button type="submit">Logout</button>
     </form>

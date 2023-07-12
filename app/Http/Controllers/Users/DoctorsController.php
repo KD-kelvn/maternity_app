@@ -21,4 +21,16 @@ class DoctorsController extends Controller
         $doctor = Doctor::findOrFail($id);
         return view('users.doctors.show', ['doctor' => $doctor]);
     }
+
+   // Update the existing method
+    public function bestDoctor()
+    {
+        $doctors = Doctor::withCount('appointments')
+            ->orderByDesc('appointments_count')
+            ->whereHas('appointments')
+            ->get();
+
+        return view('components.suggestions', ['doctors' => $doctors]);
+    }
+
 }
