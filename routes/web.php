@@ -49,7 +49,7 @@ Route::get('/doctors/appointments/view', [AppointmentsController::class, 'index'
 
 Route::get('/doctors/appointments/{appointment}', [AppointmentsController::class, 'show']);
 Route::post('/doctors/appointments/{appointment}', [AppointmentsController::class, 'action']);
-Route::post('/doctors/appointments/{appointment}/reschedule', [AppointmentsController::class, 'reschedule'])->name('reschedule');
+Route::post('/doctors/appointments/{appointment}/reschedule', [AppointmentsController::class, 'reschedule']);
 Route::get('/doctors/appointments/patients', [PatientsController::class, 'index']);
 Route::get('/doctors/profile', [ProfileController::class, 'show']);
 Route::get('/doctors/profile/edit', [ProfileController::class, 'edit']);

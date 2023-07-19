@@ -75,7 +75,7 @@
                     {{$appointment->user->name}}
                 </td>
                 <td class="px-6 py-4">
-                  {{$appointment->user->email}}}
+                  {{$appointment->user->email}}
                 </td>
                 <td class="px-6 py-4">
                     {{$appointment->user->phone}}

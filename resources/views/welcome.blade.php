@@ -5,7 +5,7 @@
                 <div class="head flex items-center gap-4">
                     <img class="w-[10%] h-[10%] rounded-full" src="https://picsum.photos/200" alt="Profile picture">
                     <div class="intro w-[64%]">
-                        <h2 class=" text-2xl font-semibold mt-3">Dr. {{$doctor->name}}</h2>
+                        <h2 class=" text-2xl font-semibold mt-3">Dr.{{$doctor->name}}</h2>
                         <p class="text-gray-600 mt-1">{{$doctor->specialty}}</p>
                     </div>
                 </div>
