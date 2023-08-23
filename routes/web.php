@@ -7,6 +7,7 @@ use App\Http\Controllers\Doctors\PatientsController;
 use App\Http\Controllers\Doctors\ProfileController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Users\AuthController;
+use App\Http\Controllers\Users\ChattController;
 use App\Http\Controllers\Users\DoctorsController;
 use App\Http\Controllers\Users\UsersController;
 
@@ -42,6 +43,8 @@ Route::get('/components/suggestions', [DoctorController::class, 'bestDoctor']);
 Route::post('/userlogout', [AuthController::class, 'destroy'])->name('user.logout');
 Route::post('/users/appointments/create/{id}', [AppointmentController::class, 'store'])->name('appointments.store');
 Route::get('/users/appointments/search', [SearchController::class, 'search'])->name('search');
+Route::get('/users/chat', [ChattController::class, 'index']);
+Route::get('/users/chat/create', [ChattController::class, 'create']);
 
 // DOCTORS APP
 Route::get('/doctors', [DoctorController::class, 'index'])->middleware('auth:doctor')->name('Doctors.dashboard');
