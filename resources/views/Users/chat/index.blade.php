@@ -1,5 +1,7 @@
 <x-layout>
     <div class="bg-white rounded-lg flex flex-col w-[88%] shadow-lg p-2">
+
+        {{-- display all  posts --}}
         @foreach ($posts as $post)
             <a href="/users/chat/post/{{$post->id}}">
                 <div class="topic w-full border-b-2 border-gray-200/20 flex flex-col pb-2">

@@ -20,7 +20,8 @@
         <h3 class="text-lg text-gray-700 font-semibold leading-normal mb-2">Community response</h3>
 
 
-        @if (!empty($comments))
+        {{-- display comments  --}}
+        @if (count($comments) > 0)
         @foreach ($comments as $comment)
           <div class="mt-2 border-b-[2px] pb-2 border-gray-200 last:border-b-0">
             <div class="flex space-x-2 items-center">
