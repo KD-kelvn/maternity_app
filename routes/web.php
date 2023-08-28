@@ -1,10 +1,12 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Doctors\AppointmentsController;
 use App\Http\Controllers\Doctors\DoctorController;
 use App\Http\Controllers\Doctors\PatientsController;
 use App\Http\Controllers\Doctors\ProfileController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\Users\AuthController;
 use App\Http\Controllers\Users\ChattController;
@@ -45,6 +47,12 @@ Route::post('/users/appointments/create/{id}', [AppointmentController::class, 's
 Route::get('/users/appointments/search', [SearchController::class, 'search'])->name('search');
 Route::get('/users/chat', [ChattController::class, 'index']);
 Route::get('/users/chat/create', [ChattController::class, 'create']);
+Route::post('/users/chat/create', [PostController::class, 'add']);//adds posts page
+Route::get('/users/chat', [PostController::class, 'index']);//shows all posts
+Route::get('/users/chat/post/{id}', [PostController::class, 'showPostPage']);
+Route::post('/users/chat/post/{id}', [CommentController::class, 'addComment'])->name('comment.store');// function that add comment
+
+
 
 // DOCTORS APP
 Route::get('/doctors', [DoctorController::class, 'index'])->middleware('auth:doctor')->name('Doctors.dashboard');

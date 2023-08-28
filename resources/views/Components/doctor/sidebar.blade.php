@@ -3,7 +3,8 @@
     <ul class="quick-links list-none flex flex-col space-y-4 mt-[3rem]">
        <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow active-link"><a href="/doctors/ ">Dashboard</a></li>
        <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/doctors/appointments/view">My appointments</a></li>
-       <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/doctos/appointments/patients">My patients</a></li>
+
+      
        <li class="p-3 border-2 border-slate-100 rounded-[4px] text-black self-center w-[70%] text-center hover:shadow "><a href="/doctors/profile">My profile</a></li>
      
     </ul>

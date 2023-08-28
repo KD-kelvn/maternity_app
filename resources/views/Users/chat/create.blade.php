@@ -2,33 +2,44 @@
     {{-- file upload, topic title --}}
 
     <div class="bg-white rounded-lg flex flex-col w-[88%] shadow-lg p-2">
-   
-        <form action="" method="post" class="flex flex-col space-y-2">
+        <form action="/users/chat/create" method="post" class="flex flex-col space-y-2" enctype="multipart/form-data">
             @csrf
-            <div class="flex flex-col space-y-2">
-                <label for="topic" class="text-lg text-gray-700 font-semibold leading-normal mb-2">Upload file</label>
-                <input type="file" name="topic_file" id="fileInput" class="border-2 border-gray-400/20 rounded-lg px-2 py-1 outline-none">
-                {{-- img preview --}}
-                <div class="preview-img mx-auto" id="filePreview">
-
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
                 </div>
-            </div>
+            @elseif (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
+        
             <div class="flex flex-col space-y-2">
-                <label for="topic" class="text-lg text-gray-700 font-semibold leading-normal mb-2">Topic title</label>
-                <input type="text" name="topic_title" id="topic_tilte" class="border-2 border-gray-400/20 rounded-lg px-2 py-1 outline-none" placeholder="Type your topic here...">
+                <label for="image" class="text-lg text-gray-700 font-semibold leading-normal mb-2">Upload file</label>
+                <input type="file" name="image" id="fileInput" class="border-2 border-gray-400/20 rounded-lg px-2 py-1 outline-none">
+                {{-- img preview --}}
+                <div class="preview-img mx-auto" id="filePreview"></div>
+                @error('image')
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror
             </div>
+        
             <div class="flex flex-col space-y-2">
-                <label for="topic" class="text-lg text-gray-700 font-semibold leading-normal mb-2">Topic description</label>
-                <textarea name="topic_desc" id="topic_desc" cols="1" rows="1" class="border-2 border-gray-400/20 rounded-lg px-2 py-1 outline-none resize-none" placeholder="Type your topic here..."></textarea>
+                <label for="content" class="text-lg text-gray-700 font-semibold leading-normal mb-2">Topic Content</label>
+                <textarea name="content" id="editor" class="border-2 border-gray-400/20 rounded-lg px-2 py-1 outline-none" cols="30" rows="10" placeholder="Write content here"></textarea>
+                @error('content')
+                    <span class="text-red-500">{{ $message }}</span>
+                @enderror
             </div>
         
             <div class="flex justify-center items-center">
-                <button type="submit" class="bg-main/90 text-white px-4 py-2 rounded-lg">
+                <button type="submit" name="submit" class="bg-main/90 text-white px-4 py-2 rounded-lg">
                     Publish a topic
                     <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
         </form>
+        
 
         <script>
             const fileInput = document.getElementById('fileInput');
