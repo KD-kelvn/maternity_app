@@ -12,14 +12,14 @@ class PostController extends Controller
     {
         $formfields = $request->validate([
             'content' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
     
         $post = new Post();
         $post->user_id = auth()->user()->id;
         $post->content = $request->input('content');
     
-        // Save the uploaded image
+        // Check if an image was provided
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('public/images');
             $post->image = $imagePath;
@@ -29,6 +29,7 @@ class PostController extends Controller
     
         return redirect('/users/chat/create')->with('success', 'You have successfully added a post.');
     }
+    
 
     public function index()
     {
